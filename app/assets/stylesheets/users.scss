@@ -1,0 +1,36 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.map-wrapper {
+  #map {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+.page-wrapper {
+  .basic-info {
+    position: relative;
+    height: 450px;
+
+    #resizer {
+      width: 15px;
+      height: 40px;
+      padding: 0!important;
+      margin: -20px 0 0;
+      display: block;
+      text-align: center;
+      outline: 0;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      z-index: 1;
+
+      .rotate {
+        transform: rotate(90deg);
+        margin-left: -6px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
