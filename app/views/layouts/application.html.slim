@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Photastic
+    = csrf_meta_tags
+    
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"
+    script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjLc-HeysqvkFEXqViHsKfmZP7iWR-cXg"
+    script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
+    script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" type="text/javascript"
+  body
+    nav
+      .nav-wrapper
+        a.brand-logo href="/" Photastic
+        ul.right
+          - if user_signed_in?
+            li = link_to 'Settings', edit_user_registration_path
+            li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+          - else
+            li = link_to 'Sign In', new_user_session_path
+            li = link_to 'Sign Up', new_user_registration_path
+    == yield
